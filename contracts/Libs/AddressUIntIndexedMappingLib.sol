@@ -61,10 +61,7 @@ library AddressUIntIndexedMappingLib {
 	function removeAddressAtIndex(address[] storage _array, uint _index) private {
 		if (_index >= _array.length) return;
 
-		for (uint i = _index; i < _array.length - 1; i++){
-			_array[i] = _array[i + 1];
-		}
-
+		_array[_index] = _array[_array.length - 1];
 		delete _array[_array.length - 1];
 		_array.length--;
 	}
